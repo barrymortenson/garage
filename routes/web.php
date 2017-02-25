@@ -1,5 +1,5 @@
 <?php
 
 Route::get('/', function () {
-    return view('index');
+    return view('index', ['component' => 'lift']);
 });
