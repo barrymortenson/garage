@@ -3,13 +3,13 @@
         <div class="row">
             <div class="col-lg-11 col-lg-offset-1">
                 <br>
-                <button type="button" @mousedown="up" @touchstart="touch" @mouseup="stop" @mouseleave="stop" @blur="stop" class="btn btn-success btn-lg"><i class="fa fa-arrow-up fa-5x"></i></button>
+                <button type="button" @mousedown="up" @touchstart="touch" @mouseup="stop" @mouseleave="stop" class="btn btn-success btn-lg"><i class="fa fa-arrow-up fa-5x"></i></button>
             </div>
         </div>
         <div class="row">
             <div class="col-lg-11">
                 <br>
-                <button type="button" @mousedown="down" @mouseup="stop" @mouseleave="stop" @blur="stop" class="btn btn-danger btn-lg"><i class="fa fa-arrow-down fa-5x"></i></button>
+                <button type="button" @mousedown="down" @mouseup="stop" @mouseleave="stop" class="btn btn-danger btn-lg"><i class="fa fa-arrow-down fa-5x"></i></button>
             </div>
         </div>
 
@@ -66,13 +66,15 @@
             },
 
             stop: function() {
-                axios.get('/api/stop')
-                    .then(function (response) {
-                        this.motion = 'stopped';
-                    }.bind(this))
-                    .catch(function (error) {
-                        console.log(error);
-                    });
+                if (this.motion != 'stopped') {
+                    axios.get('/api/stop')
+                        .then(function (response) {
+                            this.motion = 'stopped';
+                        }.bind(this))
+                        .catch(function (error) {
+                            console.log(error);
+                        });
+                }
             },
         }
     }
