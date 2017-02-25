@@ -18,6 +18,11 @@
             {{motion}}
             {{touchme}}
         </div>
+
+        <div class="row">
+            <br>
+            <button type="button" @click="reload" class="btn btn-default btn-lg">Reload</button>
+        </div>
     </div>
 </template>
 
@@ -32,10 +37,14 @@
         },
 
         methods: {
+            reload: function() {
+                window.location = window.location;
+            },
+
             touch: function() {
                 this.touchme = true
             },
-            
+
             up: function() {
                 axios.get('/api/up')
                     .then(function (response) {
