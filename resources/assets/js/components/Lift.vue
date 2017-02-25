@@ -3,19 +3,20 @@
         <div class="row">
             <div class="col-lg-11 col-lg-offset-1">
                 <br>
-                <button type="button" @mousedown="up" @mouseup="stop" class="btn btn-success btn-lg"><i class="fa fa-arrow-up fa-5x"></i></button>
+                <button type="button" @mousedown="up" @touchstart="touch" @mouseup="stop" @mouseleave="stop" @blur="stop" class="btn btn-success btn-lg"><i class="fa fa-arrow-up fa-5x"></i></button>
             </div>
         </div>
         <div class="row">
             <div class="col-lg-11">
                 <br>
-                <button type="button" @mousedown="down" @mouseup="stop" class="btn btn-danger btn-lg"><i class="fa fa-arrow-down fa-5x"></i></button>
+                <button type="button" @mousedown="down" @mouseup="stop" @mouseleave="stop" @blur="stop" class="btn btn-danger btn-lg"><i class="fa fa-arrow-down fa-5x"></i></button>
             </div>
         </div>
 
         <div class="row">
             <br><br>
             {{motion}}
+            {{touchme}}
         </div>
     </div>
 </template>
@@ -26,10 +27,15 @@
             return {
                 error: false,
                 motion: 'stopped',
+                touchme: false,
             }
         },
 
         methods: {
+            touch: function() {
+                this.touchme = true
+            },
+            
             up: function() {
                 axios.get('/api/up')
                     .then(function (response) {
