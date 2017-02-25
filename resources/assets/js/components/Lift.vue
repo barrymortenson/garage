@@ -12,17 +12,14 @@
             </div>
 
             <div class="col-xs-6" >
-                <button type="button" class="btn btn-warning btn-large">
+                <a type="button" href="/" class="btn btn-warning btn-large">
                     <i class="fa fa-lock"></i>
-                </button>
+                </a>
 
                 <button type="button" @click="reload" class="btn btn-primary btn-large">
                     <i class="fa fa-gear"></i>
                 </button>
             </div>
-
-
-            {{motion}}
         </div>
     </div>
 </template>
