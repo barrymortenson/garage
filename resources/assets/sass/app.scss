@@ -8,3 +8,28 @@
 
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+.container-fluid {
+    padding: 20px;
+}
+
+.no-gutter > [class*='col-'] {
+    padding-right:0;
+    padding-left:0;
+}
+
+.btn-large {
+    width: 380px;
+    margin-bottom: 10px;
+
+    i {
+        font-size: 200px;
+    }
+}
+
+.btn-small {
+    width: 108px;
+    i {
+
+    }
+}

@@ -1,47 +1,28 @@
 <template>
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-5">
-                <br>
-                <button type="button"
-                    @mousedown="up"
-                    @mouseup="stop"
-                    @mouseleave="stop"
-                    class="btn btn-success"
-                >
-                    <i class="fa fa-arrow-up" style="font-size: 196px;"></i>
+        <div class="row no-gutter text-center">
+            <div class="col-xs-6">
+                <button type="button" @mousedown="up" @mouseup="stop" @mouseleave="stop" class="btn btn-success btn-large">
+                    <i class="fa fa-arrow-up"></i>
                 </button>
 
-                <br><br>
-
-                <button type="button"
-                    @mousedown="down"
-                    @mouseup="stop"
-                    @mouseleave="stop"
-                    class="btn btn-danger"
-                >
-                    <i class="fa fa-arrow-up" style="font-size: 196px;"></i>
+                <button type="button" @mousedown="down" @mouseup="stop" @mouseleave="stop" class="btn btn-danger btn-large">
+                    <i class="fa fa-arrow-down"></i>
                 </button>
             </div>
 
-            <div class="col-sm-2">
-                <table>
-                    <tr>
-                        <td style="vertical-align: middle">
-                            <button type="button" class="btn btn-default">
-                                &nbsp;<i class="fa fa-lock" style="font-size: 180px;"></i>&nbsp;
-                            </button>
-                        </td>
-                    </tr>
-                </table>
-                <br><br>
-                {{motion}}
-                {{touchme}}
+            <div class="col-xs-6" >
+                <button type="button" class="btn btn-warning btn-large">
+                    <i class="fa fa-lock"></i>
+                </button>
+
+                <button type="button" @click="reload" class="btn btn-primary btn-large">
+                    <i class="fa fa-gear"></i>
+                </button>
             </div>
 
-            <div class="col-sm-5 text-right">
-                <button type="button" @click="reload" class="btn btn-default btn-lg">Reload</button>
-            </div>
+
+            {{motion}}
         </div>
     </div>
 </template>
@@ -52,17 +33,12 @@
             return {
                 error: false,
                 motion: 'stopped',
-                touchme: false,
             }
         },
 
         methods: {
             reload: function() {
                 window.location = window.location;
-            },
-
-            touch: function() {
-                this.touchme = true
             },
 
             up: function() {
