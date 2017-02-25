@@ -1,14 +1,15 @@
 <template>
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <div class="panel panel-default">
-                    <div class="panel-heading">Example Component</div>
-
-                    <div class="panel-body">
-                        I'm an example component!
-                    </div>
-                </div>
+            <div class="col-lg-12">
+                <br>
+                <button type="button" class="btn btn-success btn-lg"><i class="fa fa-arrow-up fa-5x"></i></button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <br>
+                <button type="button" class="btn btn-danger btn-lg"><i class="fa fa-arrow-down fa-5x"></i></button>
             </div>
         </div>
     </div>
