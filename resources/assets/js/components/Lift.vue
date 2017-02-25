@@ -3,13 +3,13 @@
         <div class="row">
             <div class="col-lg-11 col-lg-offset-1">
                 <br>
-                <button type="button" @mousedown="up" @mouseup="stop" class="btn btn-default btn-lg"><i class="fa fa-arrow-up fa-5x"></i></button>
+                <button type="button" @mousedown="up" @mouseup="stop" class="btn btn-success btn-lg"><i class="fa fa-arrow-up fa-5x"></i></button>
             </div>
         </div>
         <div class="row">
             <div class="col-lg-11">
                 <br>
-                <button type="button" @mousedown="down" @mouseup="stop" class="btn btn-primary btn-lg"><i class="fa fa-arrow-down fa-5x"></i></button>
+                <button type="button" @mousedown="down" @mouseup="stop" class="btn btn-danger btn-lg"><i class="fa fa-arrow-down fa-5x"></i></button>
             </div>
         </div>
 
