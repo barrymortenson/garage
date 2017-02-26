@@ -23,13 +23,13 @@
                     <div class="panel-body">
                         <div class="row no-gutter">
                             <div class="col-xs-4">
-                                <button type="button" class="btn btn-number" :class="[codeError ? 'btn-danger' : 'btn-default']" disabled="disabled">{{digit_1}}</button>
+                                <button type="button" class="btn btn-number" :class="[codeError ? 'btn-danger' : 'btn-default']" disabled="disabled"><i class="fa fa-circle" v-if="digit_1 != ''"></i></button>
                             </div>
                             <div class="col-xs-4">
-                                <button type="button" class="btn btn-number" :class="[codeError ? 'btn-danger' : 'btn-default']" disabled="disabled">{{digit_2}}</button>
+                                <button type="button" class="btn btn-number" :class="[codeError ? 'btn-danger' : 'btn-default']" disabled="disabled"><i class="fa fa-circle" v-if="digit_2 != ''"></i></button>
                             </div>
                             <div class="col-xs-4">
-                                <button type="button" class="btn btn-number" :class="[codeError ? 'btn-danger' : 'btn-default']" disabled="disabled">{{digit_3}}</button>
+                                <button type="button" class="btn btn-number" :class="[codeError ? 'btn-danger' : 'btn-default']" disabled="disabled"><i class="fa fa-circle" v-if="digit_3 != ''"></i></button>
                             </div>
                         </div>
 
