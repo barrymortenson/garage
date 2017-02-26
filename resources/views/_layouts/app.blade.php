@@ -11,7 +11,7 @@
     <meta property="og:url" content="{{ url('/') }}/" />
     <meta property="og:image" content="{{ url('/touch-icon.png') }}" />
 
-    <title>{{ $title or 'Garage' }}</title>
+    <title>Garage</title>
 
     <script>
         window.Laravel = {

@@ -9,6 +9,10 @@
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
+body {
+    //background-color: #000;
+}
+
 .container-fluid {
     padding: 20px;
     padding-bottom: 0px;
@@ -19,18 +23,53 @@
     padding-left:0;
 }
 
+.panel {
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.panel-title {
+    font-size: 40px;
+}
+
+.panel-body {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
 .btn-large {
     width: 380px;
     margin-bottom: 10px;
+    height: 214px;
 
     i {
-        font-size: 200px;
+        font-size: 180px;
     }
 }
 
-.btn-small {
-    width: 108px;
-    i {
+.btn-large-text {
+    width: 380px;
+    margin-bottom: 10px;
+    font-size: 40px;
+    height: 214px;
 
+    i {
+        font-size: 110px;
     }
+}
+
+
+.btn-medium-text {
+    width: 380px;
+    margin-bottom: 10px;
+    font-size: 40px;
+    height: 102px;
+}
+
+.btn-number {
+    width: 100px;
+    height: 58px;
+    font-size: 27px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
