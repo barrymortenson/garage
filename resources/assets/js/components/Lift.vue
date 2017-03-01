@@ -12,11 +12,11 @@
             </div>
 
             <div class="col-xs-6">
-                <button type="button" @mousedown="up" @mouseup="stop" @mouseleave="stop" class="btn btn-success btn-large">
+                <button type="button" @mousedown="move('up')" @mouseup="stop" @mouseleave="stop" class="btn btn-success btn-large">
                     <i class="fa fa-arrow-up"></i>
                 </button>
 
-                <button type="button" @mousedown="down" @mouseup="stop" @mouseleave="stop" class="btn btn-danger btn-large">
+                <button type="button" @mousedown="move('down')" @mouseup="stop" @mouseleave="stop" class="btn btn-danger btn-large">
                     <i class="fa fa-arrow-down"></i>
                 </button>
             </div>
@@ -25,11 +25,13 @@
 </template>
 
 <script>
+
     export default {
         data: function() {
             return {
-                error: false,
                 motion: 'stopped',
+                source: '',
+                moving: false,
             }
         },
 
@@ -38,36 +40,32 @@
                 window.location = window.location;
             },
 
-            up: function() {
-                axios.get('/api/up')
-                    .then(function (response) {
-                        this.motion = 'going up';
-                    }.bind(this))
-                    .catch(function (error) {
-                        console.log(error);
-                    });
-            },
-
-            down: function() {
-                axios.get('/api/down')
-                    .then(function (response) {
-                        this.motion = 'going down';
-                    }.bind(this))
-                    .catch(function (error) {
-                        console.log(error);
-                    });
+            move: function(direction) {
+                this.sendRequest(direction);
+                this.moving = direction;
             },
 
             stop: function() {
-                if (this.motion != 'stopped') {
-                    axios.get('/api/stop')
-                        .then(function (response) {
-                            this.motion = 'stopped';
-                        }.bind(this))
-                        .catch(function (error) {
-                            console.log(error);
-                        });
+                if (this.moving) {
+                    this.sendRequest('stop');
+                    this.moving = false;
                 }
+            },
+
+            sendRequest: function(endpoint) {
+                try {
+                    this.source.cancel();
+                } catch(err) {}
+                var CancelToken = axios.CancelToken;
+                this.source = CancelToken.source();
+                axios.get('/api/' + endpoint, { cancelToken: this.source.token })
+                    .catch(function(thrown) {
+                        if (axios.isCancel(thrown)) {
+                            //console.log('Request canceled', thrown.message);
+                        } else {
+                            // handle error
+                        }
+                    });
             },
 
             lock: function() {
