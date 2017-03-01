@@ -10,8 +10,8 @@ class LiftController extends Controller
     public function up()
     {
         shell_exec("/usr/bin/gpio -g mode 4 out");
-        shell_exec("/usr/bin/gpio -g mode 4 out");
-        shell_exec("/usr/bin/gpio -g write 17 0");
+        shell_exec("/usr/bin/gpio -g write 4 0");
+        shell_exec("/usr/bin/gpio -g mode 17 out");
         shell_exec("/usr/bin/gpio -g write 17 0");
     }
 
@@ -25,13 +25,9 @@ class LiftController extends Controller
 
     public function stop()
     {
-        shell_exec("/usr/bin/gpio -g mode 4 out");
-        shell_exec("/usr/bin/gpio -g write 4 1");
-        shell_exec("/usr/bin/gpio -g mode 17 out");
-        shell_exec("/usr/bin/gpio -g write 17 1");
-        shell_exec("/usr/bin/gpio -g mode 27 out");
-        shell_exec("/usr/bin/gpio -g write 27 1");
-        shell_exec("/usr/bin/gpio -g mode 22 out");
-        shell_exec("/usr/bin/gpio -g write 22 1");
+        shell_exec("/usr/bin/gpio -g mode 4 in");
+        shell_exec("/usr/bin/gpio -g mode 17 in");
+        shell_exec("/usr/bin/gpio -g mode 27 in");
+        shell_exec("/usr/bin/gpio -g mode 22 in");
     }
 }
