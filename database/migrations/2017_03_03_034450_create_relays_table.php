@@ -26,6 +26,22 @@ class CreateRelaysTable extends Migration
             ['id' => 2, 'gpio' => 17],
             ['id' => 3, 'gpio' => 27],
             ['id' => 4, 'gpio' => 22],
+            ['id' => 5, 'gpio' => 10],
+            ['id' => 6, 'gpio' => 9],
+            ['id' => 7, 'gpio' => 11],
+            ['id' => 8, 'gpio' => 5],
+            ['id' => 9, 'gpio' => 6],
+            ['id' => 10, 'gpio' => 13],
+            ['id' => 11, 'gpio' => 19],
+            ['id' => 12, 'gpio' => 26],
+            ['id' => 13, 'gpio' => 12],
+            ['id' => 14, 'gpio' => 16],
+            ['id' => 15, 'gpio' => 20],
+            ['id' => 16, 'gpio' => 21],
+            ['id' => 17, 'gpio' => 7],
+            ['id' => 18, 'gpio' => 8],
+            ['id' => 19, 'gpio' => 25],
+            ['id' => 20, 'gpio' => 24],
         ];
 
         collect($relays)->each(function ($relay) {
