@@ -50,5 +50,4 @@ class LiftController extends Controller
             });
         });
     }
-
 }
