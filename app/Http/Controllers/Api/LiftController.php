@@ -2,32 +2,53 @@
 
 namespace App\Http\Controllers\Api;
 
-use Illuminate\Http\Request;
+use App\Gpio;
+use App\Motor;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 class LiftController extends Controller
 {
-    public function up()
+    protected $motors;
+
+    public function __construct()
     {
-        shell_exec("/usr/bin/gpio -g mode 4 out");
-        shell_exec("/usr/bin/gpio -g write 4 0");
-        shell_exec("/usr/bin/gpio -g mode 17 out");
-        shell_exec("/usr/bin/gpio -g write 17 0");
+        $this->motors = Motor::all();
     }
 
-    public function down()
+    public function up(Gpio $gpio)
     {
-        shell_exec("/usr/bin/gpio -g mode 27 out");
-        shell_exec("/usr/bin/gpio -g write 27 0");
-        shell_exec("/usr/bin/gpio -g mode 22 out");
-        shell_exec("/usr/bin/gpio -g write 22 0");
+        $this->stop($gpio);
+
+        $this->motors->each(function ($motor) use ($gpio) {
+            $motor->relays->each(function ($relay) use ($gpio) {
+                if ($relay->pivot->direction == 'up') {
+                    $gpio->on($relay->gpio);
+                }
+            });
+        });
     }
 
-    public function stop()
+    public function down(Gpio $gpio)
     {
-        shell_exec("/usr/bin/gpio -g mode 4 in");
-        shell_exec("/usr/bin/gpio -g mode 17 in");
-        shell_exec("/usr/bin/gpio -g mode 27 in");
-        shell_exec("/usr/bin/gpio -g mode 22 in");
+        $this->stop($gpio);
+
+        $this->motors->map(function ($motor) use ($gpio) {
+            $motor->relays->map(function ($relay) use ($gpio) {
+                if ($relay->pivot->direction == 'down') {
+                    $gpio->on($relay->gpio);
+                }
+            });
+        });
     }
+
+    public function stop(Gpio $gpio)
+    {
+        $this->motors->map(function ($motor) use ($gpio) {
+            $motor->relays->map(function ($relay) use ($gpio) {
+                $gpio->off($relay->gpio);
+            });
+        });
+    }
+
 }
