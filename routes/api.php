@@ -9,14 +9,14 @@ Route::group(['namespace' => 'Api'], function () {
 
 
     Route::get('up', function() {
-        exec('/usr/bin/python /var/www/garage/relay_scripts/motors_up.py');
+        exec('/usr/bin/python /var/www/relay_scripts/motors_up.py');
     });
 
     Route::get('down', function() {
-        exec('/usr/bin/python /var/www/garage/relay_scripts/motors_down.py');
+        exec('/usr/bin/python /var/www/relay_scripts/motors_down.py');
     });
 
     Route::get('stop', function() {
-        exec('/usr/bin/python /var/www/garage/relay_scripts/motors_stop.py');
+        exec('/usr/bin/python /var/www/relay_scripts/motors_stop.py');
     });
 });
