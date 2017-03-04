@@ -58,12 +58,12 @@
                 } catch(err) {}
                 var CancelToken = axios.CancelToken;
                 this.source = CancelToken.source();
-                axios.get('/api/' + endpoint, { cancelToken: this.source.token })
+                axios.get('/api/motors/' + endpoint, { cancelToken: this.source.token })
                     .catch(function(thrown) {
                         if (axios.isCancel(thrown)) {
                             //console.log('Request canceled', thrown.message);
                         } else {
-                            // handle error
+                            //console.log('other error');
                         }
                     });
             },
