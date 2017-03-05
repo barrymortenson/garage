@@ -159,20 +159,6 @@
                         console.log(error);
                     });
             },
-
-
-
-            stop: function() {
-                if (this.motion != 'stopped') {
-                    axios.get('/api/stop')
-                        .then(function (response) {
-                            this.motion = 'stopped';
-                        }.bind(this))
-                        .catch(function (error) {
-                            console.log(error);
-                        });
-                }
-            },
         }
     }
 </script>
