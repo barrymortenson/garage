@@ -132,9 +132,9 @@
 
             toggleDoor: function() {
                 axios.get('/api/door')
-                    .then(function (response) {
-
-                    }.bind(this))
+                    .then((response) => {
+                        console.log(this);
+                    })
                     .catch(function (error) {
                         console.log(error);
                     });
@@ -142,9 +142,9 @@
 
             toggleLight: function() {
                 axios.get('/api/light')
-                    .then(function (response) {
+                    .then((response) => {
 
-                    }.bind(this))
+                    })
                     .catch(function (error) {
                         console.log(error);
                     });
@@ -152,9 +152,9 @@
 
             toggleVacation: function() {
                 axios.get('/api/vacation')
-                    .then(function (response) {
+                    .then((response) => {
 
-                    }.bind(this))
+                    })
                     .catch(function (error) {
                         console.log(error);
                     });

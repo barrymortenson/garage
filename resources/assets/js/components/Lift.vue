@@ -59,7 +59,7 @@
                 var CancelToken = axios.CancelToken;
                 this.source = CancelToken.source();
                 axios.get('/api/motors/' + endpoint, { cancelToken: this.source.token })
-                    .catch(function(thrown) {
+                    .catch((thrown) => {
                         if (axios.isCancel(thrown)) {
                             //console.log('Request canceled', thrown.message);
                         } else {
