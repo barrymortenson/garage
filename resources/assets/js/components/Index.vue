@@ -88,7 +88,7 @@
     export default {
         data: function() {
             return {
-                code: '519',
+                code: '147',
                 digit_1: '',
                 digit_2: '',
                 digit_3: '',
