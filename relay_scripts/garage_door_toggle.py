@@ -9,7 +9,7 @@ GPIO.setmode(GPIO.BCM)
 pins = [7]
 GPIO.setup(pins, GPIO.OUT, initial=GPIO.LOW)
 
-time.sleep(1)
+time.sleep(0.5)
 
 # off
 pins = [7]

@@ -2,15 +2,15 @@
     <div class="container-fluid">
         <div class="row no-gutter text-center">
             <div class="col-xs-6">
-                <button type="button" @click="toggleDoor" class="btn btn-info btn-large-text">
+                <button type="button" @mousedown="toggleDoor" class="btn btn-info btn-large-text">
                     <i class="fa fa-car"></i><br>
                     Garage Door
                 </button>
 
-                <button type="button" @click="toggleLight" class="btn btn-warning btn-medium-text">
+                <button type="button" @mousedown="toggleLight" class="btn btn-warning btn-medium-text">
                     <i class="fa fa-lightbulb-o"></i> Light
                 </button>
-                <button type="button" @click="toggleVacation" class="btn btn-danger btn-medium-text">
+                <button type="button" @mousedown="toggleVacation" class="btn btn-danger btn-medium-text">
                     <i class="fa fa-plane"></i> Vacation
                 </button>
             </div>
@@ -88,7 +88,7 @@
     export default {
         data: function() {
             return {
-                code: '426',
+                code: '123',
                 digit_1: '',
                 digit_2: '',
                 digit_3: '',
