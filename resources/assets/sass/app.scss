@@ -37,16 +37,6 @@ body {
     padding-right: 20px;
 }
 
-.btn-large {
-    width: 380px;
-    margin-bottom: 10px;
-    height: 214px;
-
-    i {
-        font-size: 180px;
-    }
-}
-
 .btn-large-text {
     width: 380px;
     margin-bottom: 10px;
@@ -58,8 +48,19 @@ body {
     }
 }
 
-
 .btn-medium-text {
+    width: 380px;
+    margin-bottom: 10px;
+    font-size: 40px;
+    height: 158px;
+
+    i {
+        font-size: 80px;
+    }
+
+}
+
+.btn-small-text {
     width: 380px;
     margin-bottom: 10px;
     font-size: 40px;
@@ -98,7 +99,7 @@ body {
     border-color: #eea236;
 }
 
-.btn-danger:hover{
+.btn-danger:hover {
     color: #fff;
     background-color: #d9534f;
     border-color: #d43f3a;
