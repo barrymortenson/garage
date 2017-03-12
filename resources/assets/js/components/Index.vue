@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="row no-gutter text-center">
             <div class="col-xs-6">
-                <button type="button" @mousedown="toggleDoor" class="btn btn-info btn-large-text">
+                <button type="button" @mousedown="toggleDoor" class="btn btn-primary btn-large-text">
                     <i class="fa fa-car"></i><br>
                     Garage Door
                 </button>
