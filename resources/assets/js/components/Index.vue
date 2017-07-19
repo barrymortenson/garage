@@ -104,7 +104,7 @@
     export default {
         data: function() {
             return {
-                code: '123',
+                code: '519',
                 digit_1: '',
                 digit_2: '',
                 digit_3: '',
