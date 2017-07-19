@@ -1,9 +1,6 @@
 #!/usr/bin/python
-import RPi.GPIO as GPIO
+import settings
 import time
-
-GPIO.setwarnings(False)
-GPIO.setmode(GPIO.BCM)
 
 # on
 pins = [7]
