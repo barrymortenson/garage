@@ -50,7 +50,7 @@ sudo apt-get remove --purge libreoffice-* wolfram-engine claws-mail scratch soni
 `sudo apt-get autoclean`  
 `sudo reboot`
 
---
+---
 
 ### Reconnect and Update the RPi
 `sudo apt-get update`  
