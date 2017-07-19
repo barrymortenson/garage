@@ -36,7 +36,7 @@ Expand the file system to use the entire drive and set the locale, timezone, and
 `sudo raspi-config`
 
 - Expand the Filesystem
-- set the default password to `waterlinxrpi`
+- reset the default password
 - Set the locale to `en_US.UTF-8`
 - Set the timezone `US/Pacific-new`
 - Reboot
