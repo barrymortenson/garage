@@ -2,5 +2,5 @@
 
 git pull
 composer install --no-interaction --prefer-dist
-yarn
+npm install
 npm run dev
