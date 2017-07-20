@@ -156,21 +156,26 @@ https://getcomposer.org/download/
 `sudo ln -s ~/garage /var/www`
 
 ### Setup git ssh to pull the code from the git repo
-~~`ssh-keygen -t rsa -b 4096 -C "youremail@domain.com"`~~
+`ssh-keygen -t rsa -b 4096 -C "youremail@domain.com"`
 
 ### Copy the new public key and add it to the puretec github account
-~~`cat ~/.ssh/id_rsa.pub`~~
+`cat ~/.ssh/id_rsa.pub`
 
 ### Clone the `garage` repository
-`git@github.com:barrymortenson/garage.git`  
+`git clone git@github.com:barrymortenson/garage.git`  
 `cp garage/.env.example garage/.env`   
 
 ### Update the `storage` and `bootstrap/cache` folder permissions
 `sudo chgrp -R www-data storage bootstrap/cache`  
 `sudo chmod -R ug+rwx storage bootstrap/cache`  
 
----
 
+### Install the app
+`composer install`  
+`npm install`  
+`npm run production`  
+
+---
 
 ## Auto Start Chromium in Kiosk Mode
 
