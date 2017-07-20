@@ -21,7 +21,7 @@
                         <h1 class="panel-title">
                             <span v-if="!codeError">Unlock Lift</span>
                             <span v-else>
-                                Try Again <a href="#" @click.prevent="clearEnteredCode" class="text-danger"><i class="fa fa-times-circle"></i></button>
+                                Try Again <a href="#" @click.prevent="clearEnteredCode" class="text-danger"><i class="fa fa-times-circle"></i></a>
                             </span>
                         </h1>
                     </div>
