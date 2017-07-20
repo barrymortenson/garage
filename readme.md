@@ -156,10 +156,10 @@ https://getcomposer.org/download/
 `sudo ln -s ~/garage /var/www`
 
 ### Setup git ssh to pull the code from the git repo
-~~`ssh-keygen -t rsa -b 4096 -C "youremail@domain.com"`~~
+`ssh-keygen -t rsa -b 4096 -C "youremail@domain.com"`
 
 ### Copy the new public key and add it to the puretec github account
-~~`cat ~/.ssh/id_rsa.pub`~~
+`cat ~/.ssh/id_rsa.pub`
 
 ### Clone the `garage` repository
 `git clone git@github.com:barrymortenson/garage.git`  
