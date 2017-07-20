@@ -162,7 +162,7 @@ https://getcomposer.org/download/
 ~~`cat ~/.ssh/id_rsa.pub`~~
 
 ### Clone the `garage` repository
-`git@github.com:barrymortenson/garage.git`  
+`git clone git@github.com:barrymortenson/garage.git`  
 `cp garage/.env.example garage/.env`   
 
 ### Update the `storage` and `bootstrap/cache` folder permissions
