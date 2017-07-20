@@ -1,17 +1,17 @@
 <template>
     <div class="container-fluid">
-        <div class="row no-gutter text-center">
+        <div v-show="!motor_adjust" class="row no-gutter text-center">
             <div class="col-xs-6">
-                <button type="button" @mousedown="toggleDoor" class="btn btn-primary btn-large-text">
+                <button type="button" @mousedown="toggleGarageDoor" class="btn btn-primary btn-large-text" :class="[garage_open ? 'btn-warning' : 'btn-primary']">
                     <i class="fa fa-car"></i><br>
-                    Garage Door
+                    <span v-if="!garage_open">Open</span><span v-else>Close</span> Garage
                 </button>
 
-                <button type="button" @mousedown="toggleLight" class="btn btn-small-text" :class="[light_on ? 'btn-warning' : 'btn-info']">
-                    <i class="fa fa-lightbulb-o"></i> Light
+                <button type="button" @mousedown="toggleOpenerLight" class="btn btn-small-text" :class="[light_on ? 'btn-warning' : 'btn-info']">
+                    <i class="fa fa-lightbulb-o"></i> Opener Light
                 </button>
-                <button type="button" @mousedown="toggleVacation" class="btn btn-small-text" :class="[vacation_on ? 'btn-warning' : 'btn-info']">
-                    <i class="fa fa-plane"></i> Vacation
+                <button type="button" @mousedown="toggleVacationLock" class="btn btn-small-text" :class="[vacation_on ? 'btn-danger' : 'btn-info']">
+                    <i class="fa fa-plane"></i> Vacation Lock
                 </button>
             </div>
 
@@ -19,7 +19,7 @@
                 <div v-show="!authorized" class="panel" :class="[codeError ? 'panel-danger' : 'panel-primary']">
                     <div class="panel-heading">
                         <h1 class="panel-title">
-                            <span v-if="!codeError">Unlock Lift</span>
+                            <span v-if="!codeError">Lift Controls</span>
                             <span v-else>
                                 Try Again <a href="#" @click.prevent="clearEnteredCode" class="text-danger"><i class="fa fa-times-circle"></i></a>
                             </span>
@@ -91,12 +91,97 @@
                         Lower Lift
                     </button>
 
-                    <button type="button" @mousedown="lock" @mouseup="stop" @mouseleave="stop" class="btn btn-warning btn-small-text">
-                        <i class="fa fa-lock"></i> Lock Lift
+                    <button type="button" @click="toggleMotorAdjust" class="btn btn-secondary btn-two-up" style="margin-right: 5px;">
+                        <i class="fa fa-sliders"></i>
+                    </button>
+
+                    <button type="button" @mousedown="lock" class="btn btn-secondary btn-two-up" style="margin-left: 5px;">
+                        <i class="fa fa-lock"></i>
                     </button>
                 </div>
             </div>
         </div>
+
+        <div v-show="motor_adjust" class="row no-gutter text-center">
+            <div class="col-xs-6">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h1 class="panel-title">
+                            Motor 1
+                        </h1>
+                    </div>
+                    <div class="panel-body no-gutter">
+                        <button type="button" @mousedown="move('1/up')" @mouseup="stop" @mouseleave="stop" class="btn btn-success btn-two-up narrow">
+                            <i class="fa fa-arrow-up"></i>
+                        </button>
+
+                        <button type="button" @mousedown="move('1/down')" @mouseup="stop" @mouseleave="stop" class="btn btn-danger btn-two-up narrow">
+                            <i class="fa fa-arrow-down"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h1 class="panel-title">
+                            Motor 2
+                        </h1>
+                    </div>
+                    <div class="panel-body no-gutter">
+                        <button type="button" @mousedown="move('3/up')" @mouseup="stop" @mouseleave="stop" class="btn btn-success btn-two-up narrow">
+                            <i class="fa fa-arrow-up"></i>
+                        </button>
+
+                        <button type="button" @mousedown="move('3/down')" @mouseup="stop" @mouseleave="stop" class="btn btn-danger btn-two-up narrow">
+                            <i class="fa fa-arrow-down"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-6">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h1 class="panel-title">
+                            Motor 2
+                        </h1>
+                    </div>
+                    <div class="panel-body no-gutter">
+                        <button type="button" @mousedown="move('2/up')" @mouseup="stop" @mouseleave="stop" class="btn btn-success btn-two-up narrow">
+                            <i class="fa fa-arrow-up"></i>
+                        </button>
+
+                        <button type="button" @mousedown="move('2/down')" @mouseup="stop" @mouseleave="stop" class="btn btn-danger btn-two-up narrow">
+                            <i class="fa fa-arrow-down"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h1 class="panel-title">
+                            Motor 4
+                        </h1>
+                    </div>
+                    <div class="panel-body no-gutter">
+                        <button type="button" @mousedown="move('4/up')" @mouseup="stop" @mouseleave="stop" class="btn btn-success btn-two-up narrow">
+                            <i class="fa fa-arrow-up"></i>
+                        </button>
+
+                        <button type="button" @mousedown="move('4/down')" @mouseup="stop" @mouseleave="stop" class="btn btn-danger btn-two-up narrow">
+                            <i class="fa fa-arrow-down"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-12">
+                <button type="button" @click="toggleMotorAdjust" class="btn btn-secondary btn-small-text" style="font-size: 20px; height: 50px; ">
+                    <i class="fa fa-arrow-left"></i> Back
+                </button>
+            </div>
+        </div>
+
     </div>
 </template>
 
@@ -108,8 +193,10 @@
                 digit_1: '',
                 digit_2: '',
                 digit_3: '',
+                garage_open: false,
                 light_on: false,
                 vacation_on: false,
+                motor_adjust: false,
             }
         },
 
@@ -147,35 +234,38 @@
                 this.codeError = false;
             },
 
-            toggleDoor: function() {
+            toggleGarageDoor: function() {
                 axios.get('/api/door')
                     .then((response) => {
-                        //
+                        this.garage_open = this.garage_open ? false: true;
                     })
                     .catch(function (error) {
-                        console.log(error);
+                        alert(error);
                     });
             },
 
-            toggleLight: function() {
+            toggleOpenerLight: function() {
                 axios.get('/api/light')
                     .then((response) => {
                         this.light_on = this.light_on ? false: true;
-                        console.log(this.light_on);
                     })
                     .catch(function (error) {
-                        console.log(error);
+                        alert(error);
                     });
             },
 
-            toggleVacation: function() {
+            toggleVacationLock: function() {
                 axios.get('/api/vacation')
                     .then((response) => {
                         this.vacation_on = this.vacation_on ? false: true;
                     })
                     .catch(function (error) {
-                        console.log(error);
+                        alert(error);
                     });
+            },
+
+            toggleMotorAdjust: function() {
+                this.motor_adjust = this.motor_adjust ? false: true;
             },
 
             move: function(direction) {
@@ -202,7 +292,7 @@
                         if (axios.isCancel(thrown)) {
                             //console.log('Request canceled', thrown.message);
                         } else {
-                            //console.log('other error');
+                            alert(thrown.message);
                         }
                     });
             },
