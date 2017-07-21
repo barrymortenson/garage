@@ -111,11 +111,11 @@
                         </h1>
                     </div>
                     <div class="panel-body no-gutter">
-                        <button type="button" @mousedown="move('1/up')" @mouseup="stop" @mouseleave="stop" class="btn btn-success btn-two-up narrow">
+                        <button type="button" @mousedown="move('1-up')" @mouseup="stop" @mouseleave="stop" class="btn btn-success btn-two-up narrow">
                             <i class="fa fa-arrow-up"></i>
                         </button>
 
-                        <button type="button" @mousedown="move('1/down')" @mouseup="stop" @mouseleave="stop" class="btn btn-danger btn-two-up narrow">
+                        <button type="button" @mousedown="move('1-down')" @mouseup="stop" @mouseleave="stop" class="btn btn-danger btn-two-up narrow">
                             <i class="fa fa-arrow-down"></i>
                         </button>
                     </div>
@@ -128,11 +128,11 @@
                         </h1>
                     </div>
                     <div class="panel-body no-gutter">
-                        <button type="button" @mousedown="move('3/up')" @mouseup="stop" @mouseleave="stop" class="btn btn-success btn-two-up narrow">
+                        <button type="button" @mousedown="move('3-up')" @mouseup="stop" @mouseleave="stop" class="btn btn-success btn-two-up narrow">
                             <i class="fa fa-arrow-up"></i>
                         </button>
 
-                        <button type="button" @mousedown="move('3/down')" @mouseup="stop" @mouseleave="stop" class="btn btn-danger btn-two-up narrow">
+                        <button type="button" @mousedown="move('3-down')" @mouseup="stop" @mouseleave="stop" class="btn btn-danger btn-two-up narrow">
                             <i class="fa fa-arrow-down"></i>
                         </button>
                     </div>
@@ -147,11 +147,11 @@
                         </h1>
                     </div>
                     <div class="panel-body no-gutter">
-                        <button type="button" @mousedown="move('2/up')" @mouseup="stop" @mouseleave="stop" class="btn btn-success btn-two-up narrow">
+                        <button type="button" @mousedown="move('2-up')" @mouseup="stop" @mouseleave="stop" class="btn btn-success btn-two-up narrow">
                             <i class="fa fa-arrow-up"></i>
                         </button>
 
-                        <button type="button" @mousedown="move('2/down')" @mouseup="stop" @mouseleave="stop" class="btn btn-danger btn-two-up narrow">
+                        <button type="button" @mousedown="move('2-down')" @mouseup="stop" @mouseleave="stop" class="btn btn-danger btn-two-up narrow">
                             <i class="fa fa-arrow-down"></i>
                         </button>
                     </div>
@@ -164,11 +164,11 @@
                         </h1>
                     </div>
                     <div class="panel-body no-gutter">
-                        <button type="button" @mousedown="move('4/up')" @mouseup="stop" @mouseleave="stop" class="btn btn-success btn-two-up narrow">
+                        <button type="button" @mousedown="move('4-up')" @mouseup="stop" @mouseleave="stop" class="btn btn-success btn-two-up narrow">
                             <i class="fa fa-arrow-up"></i>
                         </button>
 
-                        <button type="button" @mousedown="move('4/down')" @mouseup="stop" @mouseleave="stop" class="btn btn-danger btn-two-up narrow">
+                        <button type="button" @mousedown="move('4-down')" @mouseup="stop" @mouseleave="stop" class="btn btn-danger btn-two-up narrow">
                             <i class="fa fa-arrow-down"></i>
                         </button>
                     </div>

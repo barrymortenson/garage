@@ -10,8 +10,7 @@ Route::group(['namespace' => 'Api'], function () {
     |--------------------------------------------------------------------------
     */
     Route::get('door', function() {
-        $output = shell_exec('sudo ' . env('PYTHON') . ' ' . base_path('relay_scripts/garage_door_toggle.py'));
-        return response('test output: ' . $output, 200);
+        return exec('sudo ' . env('PYTHON') . ' ' . base_path('relay_scripts/garage_door_toggle.py'));
     });
 
     Route::get('light', function() {
@@ -19,7 +18,7 @@ Route::group(['namespace' => 'Api'], function () {
     });
 
     Route::get('vacation', function() {
-        return shell_exec(env('PYTHON') . ' ' . base_path('relay_scripts/garage_vacation_toggle.py'));
+        return exec(env('PYTHON') . ' ' . base_path('relay_scripts/garage_vacation_toggle.py'));
     });
 
     /*
@@ -29,15 +28,15 @@ Route::group(['namespace' => 'Api'], function () {
     */
     Route::group(['prefix' => 'motors'], function() {
         Route::get('up', function() {
-            exec(env('PYTHON') . ' ' . base_path('relay_scripts/motors_up.py'));
+            return exec(env('PYTHON') . ' ' . base_path('relay_scripts/motors_up.py'));
         });
 
         Route::get('down', function() {
-            exec(env('PYTHON') . ' ' . base_path('relay_scripts/motors_down.py'));
+            return exec(env('PYTHON') . ' ' . base_path('relay_scripts/motors_down.py'));
         });
 
         Route::get('stop', function() {
-            exec(env('PYTHON') . ' ' . base_path('relay_scripts/motors_stop.py'));
+            return exec(env('PYTHON') . ' ' . base_path('relay_scripts/motors_stop.py'));
         });
 
 
@@ -46,18 +45,12 @@ Route::group(['namespace' => 'Api'], function () {
         | Motor 1
         |--------------------------------------------------------------------------
         */
-        Route::group(['prefix' => '1'], function() {
-            Route::get('up', function() {
-                exec(env('PYTHON') . ' ' . base_path('relay_scripts/motor_1_up.py'));
-            });
+        Route::get('1-up', function() {
+            return exec(env('PYTHON') . ' ' . base_path('relay_scripts/motor_1_up.py'));
+        });
 
-            Route::get('down', function() {
-                exec(env('PYTHON') . ' ' . base_path('relay_scripts/motor_1_down.py'));
-            });
-
-            Route::get('stop', function() {
-                exec(env('PYTHON') . ' ' . base_path('relay_scripts/motor_1_stop.py'));
-            });
+        Route::get('1-down', function() {
+            return exec(env('PYTHON') . ' ' . base_path('relay_scripts/motor_1_down.py'));
         });
 
         /*
@@ -65,18 +58,12 @@ Route::group(['namespace' => 'Api'], function () {
         | Motor 2
         |--------------------------------------------------------------------------
         */
-        Route::group(['prefix' => '2'], function() {
-            Route::get('up', function() {
-                exec(env('PYTHON') . ' ' . base_path('relay_scripts/motor_2_up.py'));
-            });
+        Route::get('2-up', function() {
+            return exec(env('PYTHON') . ' ' . base_path('relay_scripts/motor_2_up.py'));
+        });
 
-            Route::get('down', function() {
-                exec(env('PYTHON') . ' ' . base_path('relay_scripts/motor_2_down.py'));
-            });
-
-            Route::get('stop', function() {
-                exec(env('PYTHON') . ' ' . base_path('relay_scripts/motor_2_stop.py'));
-            });
+        Route::get('2-down', function() {
+            return exec(env('PYTHON') . ' ' . base_path('relay_scripts/motor_2_down.py'));
         });
 
         /*
@@ -84,18 +71,12 @@ Route::group(['namespace' => 'Api'], function () {
         | Motor 3
         |--------------------------------------------------------------------------
         */
-        Route::group(['prefix' => '3'], function() {
-            Route::get('up', function() {
-                exec(env('PYTHON') . ' ' . base_path('relay_scripts/motor_3_up.py'));
-            });
+        Route::get('3-up', function() {
+            return exec(env('PYTHON') . ' ' . base_path('relay_scripts/motor_3_up.py'));
+        });
 
-            Route::get('down', function() {
-                exec(env('PYTHON') . ' ' . base_path('relay_scripts/motor_3_down.py'));
-            });
-
-            Route::get('stop', function() {
-                exec(env('PYTHON') . ' ' . base_path('relay_scripts/motor_3_stop.py'));
-            });
+        Route::get('3-down', function() {
+            return exec(env('PYTHON') . ' ' . base_path('relay_scripts/motor_3_down.py'));
         });
 
         /*
@@ -103,18 +84,13 @@ Route::group(['namespace' => 'Api'], function () {
         | Motor 4
         |--------------------------------------------------------------------------
         */
-        Route::group(['prefix' => '4'], function() {
-            Route::get('up', function() {
-                exec(env('PYTHON') . ' ' . base_path('relay_scripts/motor_4_up.py'));
-            });
-
-            Route::get('down', function() {
-                exec(env('PYTHON') . ' ' . base_path('relay_scripts/motor_4_down.py'));
-            });
-
-            Route::get('stop', function() {
-                exec(env('PYTHON') . ' ' . base_path('relay_scripts/motor_4_stop.py'));
-            });
+        Route::get('4-up', function() {
+            return exec(env('PYTHON') . ' ' . base_path('relay_scripts/motor_4_up.py'));
         });
+
+        Route::get('4-down', function() {
+            return exec(env('PYTHON') . ' ' . base_path('relay_scripts/motor_4_down.py'));
+        });
+
     });
 });
