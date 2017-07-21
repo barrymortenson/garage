@@ -13,14 +13,4 @@ time.sleep(0.1)
 pins = [7]
 GPIO.setup(pins, GPIO.OUT, initial=GPIO.HIGH)
 
-
-file = open("testfile.txt","w")
-
-file.write("Hello World")
-file.write("This is our new text file")
-file.write("and this is another line.")
-file.write("Why? Because we can.")
-
-file.close()
-
 print "garage door toggled"

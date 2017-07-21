@@ -6,3 +6,5 @@ import motors_stop
 # up
 pins = [11, 5]
 GPIO.setup(pins, GPIO.OUT, initial=GPIO.LOW)
+
+print "motor 2 up"
