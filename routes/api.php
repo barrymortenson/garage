@@ -11,7 +11,7 @@ Route::group(['namespace' => 'Api'], function () {
     */
     Route::get('door', function() {
         $output = shell_exec('sudo ' . env('PYTHON') . ' ' . base_path('relay_scripts/garage_door_toggle.py'));
-        return response($output, 200);
+        return response('test output: ' . $output, 200);
     });
 
     Route::get('light', function() {
