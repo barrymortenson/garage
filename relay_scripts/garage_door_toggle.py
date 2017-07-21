@@ -12,3 +12,5 @@ time.sleep(0.1)
 # off
 pins = [7]
 GPIO.setup(pins, GPIO.OUT, initial=GPIO.HIGH)
+
+print "garage door toggled"

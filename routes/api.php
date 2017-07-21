@@ -10,7 +10,8 @@ Route::group(['namespace' => 'Api'], function () {
     |--------------------------------------------------------------------------
     */
     Route::get('door', function() {
-        return exec('sudo ' . env('PYTHON') . ' ' . base_path('relay_scripts/garage_door_toggle.py'));
+        $output = shell_exec('sudo ' . env('PYTHON') . ' ' . base_path('relay_scripts/garage_door_toggle.py'));
+        return response($output, 200);
     });
 
     Route::get('light', function() {
