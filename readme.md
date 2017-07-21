@@ -166,6 +166,7 @@ https://getcomposer.org/download/
 `cp garage/.env.example garage/.env`   
 
 ### Update the `storage` and `bootstrap/cache` folder permissions
+`cd garage`  
 `sudo chgrp -R www-data storage bootstrap/cache`  
 `sudo chmod -R ug+rwx storage bootstrap/cache`  
 
@@ -188,7 +189,7 @@ sudo vim ~/.config/lxsession/LXDE-pi/autostart
 @xset s off
 @xset -dpms
 @xset s noblank
-@chromium-browser --incognito --kiosk http://localhost/
+@chromium-browser --kiosk --incognito --disable-gpu http://localhost/
 @unclutter
 
 @python /home/pi/garage/relay_scripts/setup.py
