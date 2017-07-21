@@ -166,6 +166,7 @@ https://getcomposer.org/download/
 `cp garage/.env.example garage/.env`   
 
 ### Update the `storage` and `bootstrap/cache` folder permissions
+`cd garage`  
 `sudo chgrp -R www-data storage bootstrap/cache`  
 `sudo chmod -R ug+rwx storage bootstrap/cache`  
 
