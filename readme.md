@@ -57,7 +57,7 @@ sudo apt-get remove --purge libreoffice-* wolfram-engine claws-mail scratch soni
 `sudo apt-get upgrade`  
 `sudo apt-get autoremove && sudo apt-get autoclean`
 
-### Install Various Utilities
+### Install Vim and Git
 `sudo apt-get install vim git`
 
 --------
@@ -190,6 +190,8 @@ sudo vim ~/.config/lxsession/LXDE-pi/autostart
 @xset s noblank
 @chromium-browser --incognito --kiosk http://localhost/
 @unclutter
+
+@python /home/pi/garage/relay_scripts/setup.py
 ```
 
 ---
