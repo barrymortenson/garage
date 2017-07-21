@@ -1,4 +1,5 @@
 #!/usr/bin/python
+import RPi.GPIO as GPIO
 import settings
 import motors_stop
 
