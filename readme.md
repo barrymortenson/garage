@@ -57,7 +57,7 @@ sudo apt-get remove --purge libreoffice-* wolfram-engine claws-mail scratch soni
 `sudo apt-get upgrade`  
 `sudo apt-get autoremove && sudo apt-get autoclean`
 
-### Install Various Utilities
+### Install Vim and Git
 `sudo apt-get install vim git`
 
 --------
