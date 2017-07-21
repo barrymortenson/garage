@@ -15,11 +15,11 @@ Route::group(['namespace' => 'Api'], function () {
     });
 
     Route::get('light', function() {
-        exec(env('PYTHON') . ' ' . base_path('relay_scripts/garage_light_toggle.py'));
+        return exec(env('PYTHON') . ' ' . base_path('relay_scripts/garage_light_toggle.py'));
     });
 
     Route::get('vacation', function() {
-        exec(env('PYTHON') . ' ' . base_path('relay_scripts/garage_vacation_toggle.py'));
+        return shell_exec(env('PYTHON') . ' ' . base_path('relay_scripts/garage_vacation_toggle.py'));
     });
 
     /*
