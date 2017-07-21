@@ -190,6 +190,8 @@ sudo vim ~/.config/lxsession/LXDE-pi/autostart
 @xset s noblank
 @chromium-browser --incognito --kiosk http://localhost/
 @unclutter
+
+@python /home/pi/garage/relay_scripts/setup.py
 ```
 
 ---
