@@ -94,6 +94,11 @@ Pin-Priority: 600
 sudo apt-get install -t stretch nginx php7.0 php7.0-curl php7.0-gd php7.0-fpm php7.0-cli php7.0-opcache php7.0-mbstring php7.0-xml php7.0-zip php7.0-mcrypt
 ```
 
+### Edit nginx to run as `pi:pi` instead of `www-data:www-data`   
+sudo vim /etc/php/7.0/fpm/pool.d/www.conf   
+user = pi     
+group = pi  
+
 ### Make nginx and php start on boot
 `sudo update-rc.d nginx defaults`  
 `sudo update-rc.d php7.0-fpm defaults`
